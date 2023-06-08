@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Element Monsters</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <audio controls autoplay="autoplay" loop="loop"   oncontextmenu="return false;"  preload="auto"  id="audio">
+            <source src="./music/fondo.mp3" type="audio/mp3">
+            </audio>
+         <header id="inicial-page">
+            <h1 class="title">Element Monsters</h1>
+            <h2 class="typing4">Yoshi ha naufragado en el lado Oeste de la isla de los Elemet Monsters<br> y para poder salir de allí debe cruzar toda la isla hasta su lado Este, sin embargo...tendrá que luchar con los diferentres element monsters que encontrará en el camino. Por fortuna ha hecho un  amigo apenas llegar, Yoshi le ha dado  todas sus golosinas a un element monster y seguro que este lo ayudará a llegar al otro lado.</h2>
+            <button id="tutorial">Instrucciones</button>
+            <button id="play-game">Jugar</button>
+		</div>
+        </header>
+        <hr>
+        <section id="select-monster">
+
+            <h2 class="pickMonster">Para comenzar este juego debes elegir un element monster que te acompañará todo el camino y que será tu compeñero de combate contra otros element monsters:</h2> 
+
+            <div id="divImagesMonsters">
+                <img src="./imgs/pyro.png" alt="Pyro - fire monster" id="pyro">
+                <img src="./imgs/flow.png" alt="Flow - water monster" id="flow">
+                <img src="./imgs/slush.png" alt="slush earth monster" id="slush">
+            </div>            
+        </section>
+        <hr>
+        <section id="show-player-monster">
+            <h3 class="player-monster">Has Elegido a:</h3>
+            <div id="divImagesPlayer"></div>
+            <button id="jorney">Comenzar el viaje</button>
+        </section>
+
+        <hr>
+
+        <section id="show-enemy-monster">
+            <h3 class="enemy-monster">Has Encontrado a:</h3>
+            <div id="divImagesEnemy"></div>
+            <p>Para poder seguir el camino debes combatir y ganar</p>
+            <button id="combate">Combatir</button>
+        </section>
+        <hr>
+        <section id="pick-attack">
+        <h2>Elige el ataque con el que vas a combatir</h2>
+        <div class="tarjetas-ataque">
+            <button id="fire-attack" class="boton-de-ataque">Fuego 🔥</button>
+            <button id="water-attack" class="boton-de-ataque">Agua 💧</button>
+            <button id="earth-attack" class="button-atack">Tierra 🌎</button>
+        </div>
+        <div class="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+    </div>
+
+        </section>
+        <hr>
+        
+        <section id="combat-result">
+AQUÍ DEBERÁ APARECER PANTALLA CON EL RESULTADO DEL COMBATE
+"HAS ELEGIDO ATAQUE X Y TU ENEMIGO UN ATAQUE X... <BR>RESULTADO: GANAS 3 PUNTOS Y AVANZAS O PIERDES 3 PUNTOS Y RETROCEDES"
+        </section>
+        <hr>
+        
+        <section id="win-or-lost-screem">
+
+            AQUÍ APARACERÁ PANTALLA FINAL "HAS GANADO" O "HAS PERDIDO"
+
+            <button>Reiniciar el Juego</button>
+        </section>
+    </body>
+</html>
