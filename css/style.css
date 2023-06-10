@@ -1,0 +1,23 @@
+body {
+    background-image:url(../images/island.png);
+    background-repeat:no-repeat;
+    background-color: #36979d;
+    background-position: 50% 0%;
+
+}
+
+.board {
+    display: flex;
+    background-color: aliceblue;
+    width: 1200px;
+    border:10px solid white;
+  
+}
+.cell {
+    width: 100px;
+	height: 150px;
+    background-color: red;
+    border: 5px solid #36979d;;
+}
+
+

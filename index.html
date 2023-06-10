@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Element Monsters</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <!-- <audio controls autoplay="autoplay" loop="loop"   oncontextmenu="return false;"  preload="auto"  id="audio">
+            <source src="../music/fondo.mp3" type="audio/mp3">
+            </audio> -->
+         <a id="main-page">
+            <h1 class="title">Element Monsters</h1>
+            <h2 class="typing">Yoshi ha naufragado en el lado Oeste de la isla de los Elemet Monsters<br> y para poder salir de allí debe cruzar toda la isla hasta su lado Este, sin embargo...tendrá que luchar con los diferentres element monsters que encontrará en el camino. Por fortuna ha hecho un  amigo apenas llegar, Yoshi le ha dado  todas sus golosinas a un element monster y seguro que este lo ayudará a llegar al otro lado.</h2>
+
+            <a href="./tutorial.html" target="_blank" onClick="window.open(this.href, this.target, 'null,Height = 700, width = 700, Toolbar = no, scrollbars = no, ubicación = no, resizable = no'); return false;"><button id="tutorial">Instrucciones</button></a>
+
+            <button id="play-game">Jugar</button>
+         </section>
+
+
+        <section id="select-monster">
+            <h2 class="pickMonster">Para comenzar este juego debes elegir un element monster que te acompañará todo el camino y que será tu compeñero de combate contra otros element monsters:</h2> 
+            <div id="divImagesMonsters">
+                <div id="divPyro">
+                    <img src="../images/pyro.png" alt="Pyro - fire monster" id="pyro">
+                    <p>Element Monster<br>Tipo: Fuego<br>Ataque Favorito: Fuego<br>Debilidad: Agua</p>
+                </div>
+
+                <div id="divFlow">
+                    <img src="../images/flow.png" alt="Flow - water monster" id="flow">
+                    <p>Element Monster<br>Tipo: Agua<br>Ataque Favorito: Agua<br>Debilidad: Tierra</p>
+                </div>
+
+                <div id="divSlush">
+                    <img src="../images/slush.png" alt="slush earth monster" id="slush">
+                    <p>Element Monster<br>Tipo: Tierra<br>Ataque Favorito: Tierra<br>Debilidad: Fuego</p>
+                </div>
+            </div>            
+        </section>
+        
+        
+        <section id="show-player-monster">
+            <h3 class="player-monster-text">Has Elegido a:</h3>
+            <div id="player-monster-image"></div>
+            <button id="jorney">Comenzar el viaje</button>
+        </section>
+
+
+        <section id="show-enemy-monster">
+            <h3 class="enemy-monster-text">Has Encontrado a:</h3>
+            <div id="enemy-monster-image"></div>
+            <p>Para poder seguir el camino debes combatir y ganar</p>
+            <button id="combate">Combatir</button>
+        </section>
+        
+        
+        <section id="pick-attack">
+        <h2>Elige el ataque con el que vas a combatir</h2>
+        <div class="tarjetas-ataque">
+            <button id="fire-attack">Fuego 🔥</button>
+            <button id="water-attack">Agua 💧</button>
+            <button id="earth-attack">Tierra 🌎</button>
+        </div>
+        <div id="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+    </div>
+        </section>
+
+        
+        <section id="combat-result">
+            <h2 id="attack-player-picked"></h2>
+            <h2 id="attack-enemy-picked"></h2>
+            <h2 id="result"></h2>
+            <img src="" alt="" id="image-result">
+
+AQUÍ DEBERÁ APARECER PANTALLA CON EL RESULTADO DEL COMBATE
+"HAS ELEGIDO ATAQUE X Y TU ENEMIGO UN ATAQUE X... <BR>RESULTADO: GANAS 3 PUNTOS Y AVANZAS O PIERDES 3 PUNTOS Y RETROCEDES"
+        </section>
+
+        
+        <section id="win-or-lost-screen">
+
+            <h2 id="win-or-lost-text">AQUÍ APARACERÁ PANTALLA FINAL "HAS GANADO" O "HAS PERDIDO"</h2>
+            <img src="" alt="" id="win-or-lost-img">
+
+            <button>Reiniciar el Juego</button>
+        </section>
+
+        <script type="text/javascript" src="js/main.js"></script>  
+    </body>
+</html>
