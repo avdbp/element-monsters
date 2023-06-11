@@ -20,6 +20,7 @@ const jorney = document.getElementById("jorney")
 const sectionShowEnemyMonster = document.getElementById("show-enemy-monster");
 const enemyMonsterText = document.getElementsByClassName("enemy-monster-text")[0];
 const enemyMonsterImage = document.getElementById("enemy-monster-image");
+const combatStart = document.getElementById("combate");
 
 // ELEMENTOS DE SECTION PICK ATTACK
 const sectionPickAttack = document.getElementById("pick-attack");
@@ -62,7 +63,7 @@ sectionSelectMonster.style.display ='none'
 sectionShowPlayerMonster.style.display ='none'
 sectionShowEnemyMonster.style.display='none'
 sectionPickAttack.style.display ='none'
-sectionCombatResult.style.display ='none'
+sectionCombatResult.style.visibility ='hidden'
 sectionWinOrLostScreen.style.display ='none'
 
 //ENTRAR EN PANTALLA JUGAR
@@ -115,6 +116,12 @@ selectMonsterSlush.addEventListener('click', function() {
 
 // MONSTER ELEMENT ENEMIGO
 
+
+
+
+
+
+
 jorney.addEventListener("click", pickEnemyMonster)
 function pickEnemyMonster() {
     let randomPick = random(1,3)
@@ -122,7 +129,10 @@ function pickEnemyMonster() {
     if (randomPick == 1) {
             sectionSelectMonster.style.display = 'none';
             sectionShowPlayerMonster.style.display = 'none';
-            sectionShowEnemyMonster.style.display = 'initial'
+            sectionShowEnemyMonster.style.display = 'initial';
+
+            //AQUÍ DEBERÍA IR UN TEMPORIZADOR
+
             enemyMonsterText.textContent = "Has Encontrado a " + monsterPyro.name;
             enemyMonsterImage.innerHTML = `<img class="monster" src="${monsterPyro.image}" alt="${monsterPyro.name}"  width="500" />>`;
         } else if (randomPick == 2) {
@@ -144,5 +154,14 @@ function pickEnemyMonster() {
 }
 
 
+// COMIENZO DEL VIAJE
+// (COMBATE)
 
+combatStart.addEventListener("click", combatBoard)
+function combatBoard() {
+    sectionShowEnemyMonster.style.display = 'none';
+    sectionPickAttack.style.display = 'flex';
+
+
+}
 
