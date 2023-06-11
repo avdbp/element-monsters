@@ -14,6 +14,7 @@ const selectMonsterSlush = document.getElementById("slush");
 const sectionShowPlayerMonster = document.getElementById("show-player-monster");
 const playerMonsterText = document.getElementsByClassName("player-monster-text")[0];
 const playerMonsterImage = document.getElementById("player-monster-image");
+const jorney = document.getElementById("jorney")
 // ELEMENTOS DE SECTION SHOW ENEMY MONSTER
 
 const sectionShowEnemyMonster = document.getElementById("show-enemy-monster");
@@ -92,7 +93,7 @@ const monsterPyro = new ElementMonster('Pyro', "../images/pyro.png", 'Fire');
 const monsterFlow = new ElementMonster('Flow', "../images/flow.png", 'Water');
 const monsterSlush = new ElementMonster('Slush', "../images/slush.png", 'Earth');
 
-selectMonsterPyro.addEventListener('click', function() {
+    selectMonsterPyro.addEventListener('click', function() {
     sectionSelectMonster.style.display = 'none';
     sectionShowPlayerMonster.style.display = 'initial';
     playerMonsterText.textContent = "Has Elegido a " + monsterPyro.name;
@@ -111,7 +112,37 @@ selectMonsterSlush.addEventListener('click', function() {
     playerMonsterText.textContent = "Has Elegido a: " + monsterSlush.name;
     playerMonsterImage.innerHTML = `<img class="monster" src="${monsterSlush.image}" alt="${monsterSlush.name}">`;
 });
+
+// MONSTER ELEMENT ENEMIGO
+
+jorney.addEventListener("click", pickEnemyMonster)
+function pickEnemyMonster() {
+    let randomPick = random(1,3)
     
+    if (randomPick == 1) {
+            sectionSelectMonster.style.display = 'none';
+            sectionShowPlayerMonster.style.display = 'none';
+            sectionShowEnemyMonster.style.display = 'initial'
+            enemyMonsterText.textContent = "Has Encontrado a " + monsterPyro.name;
+            enemyMonsterImage.innerHTML = `<img class="monster" src="${monsterPyro.image}" alt="${monsterPyro.name}"  width="500" />>`;
+        } else if (randomPick == 2) {
+            sectionSelectMonster.style.display = 'none';
+            sectionShowPlayerMonster.style.display = 'none';
+            sectionShowEnemyMonster.style.display = 'initial'
+            enemyMonsterText.textContent = "Has Encontrado a " + monsterFlow.name;
+            enemyMonsterImage.innerHTML = `<img class="monster" src="${monsterFlow.image}" alt="${monsterFlow.name}"  width="500" />>`;
+        } else {
+            sectionSelectMonster.style.display = 'none';
+            sectionShowPlayerMonster.style.display = 'none';
+            sectionShowEnemyMonster.style.display = 'initial'
+            enemyMonsterText.textContent = "Has Encontrado a " + monsterSlush.name;
+            enemyMonsterImage.innerHTML = `<img class="monster" src="${monsterSlush.image}" alt="${monsterSlush.name}"  width="500" />>`;  
+    }
+ }
+ function random (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 
 
 
