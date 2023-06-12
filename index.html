@@ -11,9 +11,18 @@
         <!-- <audio controls autoplay="autoplay" loop="loop"   oncontextmenu="return false;"  preload="auto"  id="audio">
             <source src="../music/fondo.mp3" type="audio/mp3">
             </audio> -->
-         <a id="main-page">
+         <section id="main-page">
             <h1 class="title">Element Monsters</h1>
-            <h2 class="typing">Yoshi ha naufragado en el lado Oeste de la isla de los Elemet Monsters<br> y para poder salir de allí debe cruzar toda la isla hasta su lado Este, sin embargo...tendrá que luchar con los diferentres element monsters que encontrará en el camino. Por fortuna ha hecho un  amigo apenas llegar, Yoshi le ha dado  todas sus golosinas a un element monster y seguro que este lo ayudará a llegar al otro lado.</h2>
+
+            <div id="element-images">
+                <img src="./images/fire.gif" width="180px" alt="">
+                <img src="./images/water.gif" width="180px alt="">
+                <img src="./images/earth.gif" width="180pxalt="">
+            </div>
+            
+
+
+            <h2 class="typing">Yoshi ha naufragado en el lado Oeste de la isla de los Element Monsters y para poder salir de allí debe cruzar toda la isla hasta su lado Este, sin embargo...tendrá que luchar con los diferentres element monsters que encontrará en el camino. Por fortuna ha hecho un  amigo apenas llegar, Yoshi le ha dado  todas sus golosinas a un element monster y seguro que este lo ayudará a llegar al otro lado.</h2>
 
             <a href="./tutorial.html" target="_blank" onClick="window.open(this.href, this.target, 'null,Height = 700, width = 700, Toolbar = no, scrollbars = no, ubicación = no, resizable = no'); return false;"><button id="tutorial">Instrucciones</button></a>
 
@@ -23,20 +32,20 @@
 
         <section id="select-monster">
             <h2 class="pickMonster">Para comenzar este juego debes elegir un element monster que te acompañará todo el camino y que será tu compeñero de combate contra otros element monsters:</h2> 
-            <div id="divImagesMonsters">
+            <div id="div-images-monsters">
                 <div id="divPyro">
                     <img src="../images/pyro.png" alt="Pyro - fire monster" id="pyro">
-                    <p>Element Monster<br>Tipo: Fuego<br>Ataque Favorito: Fuego<br>Debilidad: Agua</p>
+                    <p>PYRO<br>Tipo: Fuego<br>Ataque Favorito: Fuego<br>Debilidad: Agua</p>
                 </div>
 
                 <div id="divFlow">
                     <img src="../images/flow.png" alt="Flow - water monster" id="flow">
-                    <p>Element Monster<br>Tipo: Agua<br>Ataque Favorito: Agua<br>Debilidad: Tierra</p>
+                    <p>FLOW<br>Tipo: Agua<br>Ataque Favorito: Agua<br>Debilidad: Tierra</p>
                 </div>
 
                 <div id="divSlush">
                     <img src="../images/slush.png" alt="slush earth monster" id="slush">
-                    <p>Element Monster<br>Tipo: Tierra<br>Ataque Favorito: Tierra<br>Debilidad: Fuego</p>
+                    <p>SLUSH<br>Tipo: Tierra<br>Ataque Favorito: Tierra<br>Debilidad: Fuego</p>
                 </div>
             </div>            
         </section>
@@ -52,23 +61,32 @@
         <section id="show-enemy-monster">
             <h3 class="enemy-monster-text">Has Encontrado a:</h3>
             <div id="enemy-monster-image"></div>
-            <p>Para poder seguir el camino debes combatir y ganar</p>
-            <button id="combate">Combatir</button>
+            <p>Ahora, para poder seguir el camino debes combatir y ganar</p>
+            <button id="combat">Combatir</button>
         </section>
         
         <section id="combat-result">
-            <h2 id="attack-player-picked"></h2>
-            <h2 id="attack-enemy-picked"></h2>
-            <h2 id="result"></h2>
-            <img src="" alt="" id="image-result">
+            <div id="player-combat">
+                <h2 id="attack-player-picked"></h2>
+                <img id="attack-player-image" src="" alt="">
+            </div>
 
-AQUÍ DEBERÁ APARECER PANTALLA CON EL RESULTADO DEL COMBATE
-"HAS ELEGIDO ATAQUE X Y TU ENEMIGO UN ATAQUE X... <BR>RESULTADO: GANAS 3 PUNTOS Y AVANZAS O PIERDES 3 PUNTOS Y RETROCEDES"
+            <div id="enemy-combat">
+                <h2 id="attack-enemy-picked"></h2>
+                <img id="attack-enemy-image" src="" alt="">
+            </div>
+        </section>
+
+        <section id="round-result">
+            <h2 id="result"></h2>
+            <img src="" alt="" id="image-winner">
+            <h2 id="text-winner"></h2>
         </section>
         
+        
         <section id="pick-attack">
-        <h2>Elige el ataque con el que vas a combatir</h2>
-        <div class="elementsAttack">
+            <h2 id="pick-attack-text">Elige el ataque con el que vas a combatir</h2>
+        <div id="elements-attack">
             <button id="fire-attack">Fuego 🔥</button>
             <button id="water-attack">Agua 💧</button>
             <button id="earth-attack">Tierra 🌎</button>
@@ -84,15 +102,10 @@ AQUÍ DEBERÁ APARECER PANTALLA CON EL RESULTADO DEL COMBATE
             <div class="cell"></div>
             <div class="cell"></div>
             <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
     </div>
         </section>
 
-        
-        
-
-        
+  
         <section id="win-or-lost-screen">
 
             <h2 id="win-or-lost-text">AQUÍ APARACERÁ PANTALLA FINAL "HAS GANADO" O "HAS PERDIDO"</h2>
