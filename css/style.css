@@ -1,11 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
 body {
     background-image:url(../images/island.png);
     background-repeat:no-repeat;
     background-color: #36979d;
     background-position: 50% 0%;
+    margin-top: 30px;
 
 }
+h1{
+    font-family: 'Bangers', cursive;
+    font-size: 100px;
+    color: rgb(255, 254, 248);
+    text-align: center;
+    text-shadow: rgb(30, 30, 30);
+    margin-top: 100px;
+}
+h2{
+    font-family: 'Courier Prime', monospace;
+    color: rgb(252, 247, 247);
+    font-size: 30px;
+    background-color: rgba(8, 59, 113, 0.6);
+    padding: 25px;
 
+}
+h3{
+    font-family: 'Courier Prime', monospace;
+    color: rgb(252, 247, 247);
+    font-size: 30px;
+    background-color: rgba(8, 59, 113, 0.6);
+    padding: 20px;
+
+}
+p{
+    font-family: 'Courier Prime', monospace;
+    color: rgb(252, 247, 247);
+    font-size: 30px;
+    background-color: rgba(8, 59, 113, 0.6);
+    padding: 20px;
+    margin: 30px;
+}
+#main-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.element-images {
+    align-items: center;
+}
+
+.typing {
+    margin: 30px;
+}
+
+#select-monster{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px;
+  }
+  
+    
+
+#div-images-monsters{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px;
+  }
+  
+
+#jorney {
+    margin-left: 120px;
+}
 #pick-attack {
     display: flex;
     flex-direction: column;
@@ -17,28 +91,68 @@ body {
 #board {
     display: flex;
     background-color: aliceblue;
-    width: 800px;
+    opacity: .7;
+    width: 1000px;
     border:10px solid white;
+    margin: 20px;
   
 }
 .cell {
-    width: 70px;
-	height: 90px;
+    width: 100px;
+	height: 100px;
     background-color: red;
+    opacity: .9;
     border: 5px solid #36979d;;
+}
+.player-monster-text {
+    font-size: 50px;
+}
+.enemy-monster-text {
+    font-size: 50px;
+    text-align:right;
+}
+
+#player-monster-image {
+    margin-top: 30px;
 }
 #enemy-monster-image {
     transform: scaleX(-1);
     -moz-transform: scaleX(-1); /* Firefox */
     -webkit-transform: scaleX(-1); /* Chrome - Safari */
     -o-transform: scaleX(-1);
+    margin-top:30px;
 }
 
 #combat-result {
     display: flex;
-    width: 500px;
-    height: 500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px;
+  }
+  #player-combat{
+    margin: 30px;
+  }
+
+  #enemy-combat{
+    margin: 30px;
+  }
+
+button{
+-webkit-border-radius: 28;
+-moz-border-radius: 28;
+border-radius: 28px;
+text-shadow: 3px 2px 1px #b0b8d8;
+-webkit-box-shadow: 6px 5px 24px #666666;
+-moz-box-shadow: 6px 5px 24px #666666;
+box-shadow: 6px 5px 24px #666666;
+font-family: Arial;
+  color: #161515;
+  font-size: 27px;
+  padding: 19px;
+  text-decoration: none;
+  margin: 15px 30px;
 }
-
-
-
+.elements-attack{
+    margin-top: 20px;
+}
