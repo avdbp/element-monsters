@@ -107,9 +107,9 @@ class ElementMonster {
     }
 }
 
-const monsterPyro = new ElementMonster('Pyro', "../images/pyro.png", 'Fire');
-const monsterFlow = new ElementMonster('Flow', "../images/flow.png", 'Water');
-const monsterSlush = new ElementMonster('Slush', "../images/slush.png", 'Earth');
+const monsterPyro = new ElementMonster('Pyro', "./images/pyro.png", 'Fire');
+const monsterFlow = new ElementMonster('Flow', "./images/flow.png", 'Water');
+const monsterSlush = new ElementMonster('Slush', "./images/slush.png", 'Earth');
 
 elementMonsters.push(monsterPyro,monsterFlow,monsterSlush)
 
@@ -119,9 +119,9 @@ class Attack extends ElementMonster {
     }
 }
 
-const fireAttack = new Attack('Fire', "../images/fire.gif");
-const waterAttack = new Attack('water', "../images/water.gif");
-const earthAttack = new Attack('Earth', "../images/earth.gif");
+const fireAttack = new Attack('Fire', "./images/fire.gif");
+const waterAttack = new Attack('water', "./images/water.gif");
+const earthAttack = new Attack('Earth', "./images/earth.gif");
 
 function monsterClicked(monster) {
     playerElementMonster = monster;
