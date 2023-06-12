@@ -10,21 +10,21 @@ body {
     background-repeat:no-repeat;
     background-color: #36979d;
     background-position: 50% 0%;
-    margin-top: 30px;
+    margin-top: 20px;
 
 }
 h1{
     font-family: 'Bangers', cursive;
-    font-size: 100px;
+    font-size: 80px;
     color: rgb(255, 254, 248);
     text-align: center;
     text-shadow: rgb(30, 30, 30);
-    margin-top: 100px;
+    margin-top: 70px;
 }
 h2{
     font-family: 'Courier Prime', monospace;
     color: rgb(252, 247, 247);
-    font-size: 30px;
+    font-size: 26px;
     background-color: rgba(8, 59, 113, 0.6);
     padding: 25px;
 
@@ -32,7 +32,7 @@ h2{
 h3{
     font-family: 'Courier Prime', monospace;
     color: rgb(252, 247, 247);
-    font-size: 30px;
+    font-size: 16px;
     background-color: rgba(8, 59, 113, 0.6);
     padding: 20px;
 
@@ -40,10 +40,10 @@ h3{
 p{
     font-family: 'Courier Prime', monospace;
     color: rgb(252, 247, 247);
-    font-size: 30px;
+    font-size: 24px;
     background-color: rgba(8, 59, 113, 0.6);
     padding: 20px;
-    margin: 30px;
+    margin: 20px;
 }
 #main-page{
     display: flex;
@@ -55,7 +55,7 @@ p{
 }
 
 .typing {
-    margin: 30px;
+    margin: 25px;
 }
 
 #select-monster{
@@ -63,7 +63,7 @@ p{
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    margin: 50px;
+    margin: 40px;
   }
   
     
@@ -73,7 +73,7 @@ p{
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    margin: 50px;
+    margin: 40px;
   }
   
 
@@ -148,10 +148,10 @@ text-shadow: 3px 2px 1px #b0b8d8;
 box-shadow: 6px 5px 24px #666666;
 font-family: Arial;
   color: #161515;
-  font-size: 27px;
-  padding: 19px;
+  font-size: 22px;
+  padding: 15px;
   text-decoration: none;
-  margin: 15px 30px;
+  margin: 12px 25px;
 }
 .elements-attack{
     margin-top: 20px;
