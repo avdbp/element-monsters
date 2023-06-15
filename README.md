@@ -12,8 +12,7 @@ Somos Daniel y Alejandro, dos alumnos del Bootcamp de Full Stack Development de 
 ## Deployment
 
 
-Cuando hayamos terminado de desarrollar este proyecto dejaremos aquí el link para poder verlo en la web.
-
+https://avdbp.github.io/element-monsters/
 
 ## Estructura de trabajo
 
@@ -23,8 +22,7 @@ Desarrollamos este proyecto usando GitHub.
 
 ## Sobre el juego
 
-
-xxx.
+Es la aventura de Yoshi, un niño que naufraga en el lado Oeste de la Isla de los Element Monsters. Para poder salir deberá cruzar al lado Este de la Isla, donde las aguas son tranquilas. Por fortuna un Element Monster se ha comido todas las golosinas que Yoshi tenia en su mochila y ha quedado muy agradecido conn él, por lo que le ayudará a llegar a su destino. En el camino se encontrarán con otros Element Monsters y tendrán que luchar contra ellos para poder seguir su camino.
 
 
 ## Controles
@@ -50,10 +48,8 @@ Si el oponente llega primero a la "meta" el jugador será derrotado.
 
 |   Class   | Properties                                                            | Methods                                          |
 | :-------: | --------------------------------------------------------------------- | ------------------------------------------------ |
-|   Player  | imgMonster                                                            | chooseMonster(), move()                          |
-|   Enemy   | imgMonster                                                            | chooseMonster(), move()                               |
-|   Game    | imgBoard gameOverScreem buttonReset                                                          |chooseAttackPlayer(), chooseAttackEnemy(), combat(), resultCombat() gameOver()|
-|   Board   | spacesOnBoard, starCell, finishCell                                     |                              |
+|  Element Monsters  | name, imagen y elemento                                                            | chooseMonster(), move()                          |
+|                                    |                              |
 
 
 

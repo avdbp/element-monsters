@@ -1,5 +1,3 @@
-
-  
 const sectionMainPage = document.getElementById("main-page");
 const buttonTutorial = document.getElementById('tutorial');
 const audio = document.getElementById('audio');
@@ -28,16 +26,7 @@ const Earthattack = document.getElementById("earth-attack");
 const pickAttackText = document.getElementById("pick-attack-text");
 const elementsAttack = document.getElementById("elements-attack");
 const board = document.getElementById("board");
-const cellsBoard1 = document.getElementsByClassName("cell")[0];
-const cellsBoard2 = document.getElementsByClassName("cell")[1];
-const cellsBoard3 = document.getElementsByClassName("cell")[2];
-const cellsBoard4 = document.getElementsByClassName("cell")[3];
-const cellsBoard5 = document.getElementsByClassName("cell")[4];
-const cellsBoard6 = document.getElementsByClassName("cell")[5];
-const cellsBoard7 = document.getElementsByClassName("cell")[6];
-const cellsBoard8 = document.getElementsByClassName("cell")[7];
-const cellsBoard9 = document.getElementsByClassName("cell")[8];
-const cellsBoard10 = document.getElementsByClassName("cell")[9];
+const colums = board.children;
 
 const sectionCombatResult = document.getElementById("combat-result");
 const attackPlayerPicked = document.getElementById("attack-player-picked");
@@ -45,6 +34,7 @@ const attackPlayerImage = document.getElementById("attack-player-image");
 const attackEnemyPicked = document.getElementById("attack-enemy-picked");
 const attackEnemyImage = document.getElementById("attack-enemy-image");
 const combatResult = document.getElementById("result");
+const textWinner = document.getElementById("text-winner");
 const ImageResult = document.getElementById("image-result");
 const sectionRoundResult = document.getElementById("round-result");
 const nextRound = document.getElementById("next-round");
@@ -58,43 +48,33 @@ const winOrLostImg = document.getElementById("win-or-lost-text");
 function random (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-sectionSelectMonster.style.display ='none'
-sectionShowPlayerMonster.style.display ='none'
-sectionShowEnemyMonster.style.display='none'
-sectionPickAttack.style.display ='none'
-sectionCombatResult.style.visibility ='hidden'
-sectionAttackResult.style.visibility ='hidden'
-sectionWinOrLostScreen.style.display ='none'
+
+sectionSelectMonster.style.display ='none';
+sectionShowPlayerMonster.style.display ='none';
+sectionShowEnemyMonster.style.display='none';
+sectionPickAttack.style.display ='none';
+sectionCombatResult.style.visibility ='hidden';
+sectionAttackResult.style.visibility ='hidden';
+sectionWinOrLostScreen.style.display ='none';
 combatStartAgain.style.visibility='hidden';
+textWinner.style.visibility='hidden';
 
 
-buttonPlayGame.addEventListener("click", () => {sectionMainPage.style.display ='none' 
-buttonPlayGame.style.display = 'none'
-buttonTutorial.style.display = 'none'
-sectionSelectMonster.style.display ='flex'
-// audio.play();
+buttonPlayGame.addEventListener("click", () => {
+    sectionMainPage.style.display ='none' 
+    buttonPlayGame.style.display = 'none'
+    buttonTutorial.style.display = 'none'
+    sectionSelectMonster.style.display ='flex'
+    audio.play();
 });
-
-
 
 let elementMonsters = [];
 let playerElementMonster;
 let enemyElementMonster;
 let playerAttack;
 let enemyAttack;
-let playerAttackResult;
-let enemyAttackResult;
-let playerAttackResultImage;
-let enemyAttackResultImage;
-let playerAttackResultText;
-let enemyAttackResultText;
-let puntos = 0;
-let move = 0 + puntos;
 let currentMonsterPosition = 0;
-
-
-
-
+let moves = 0;
 
 class ElementMonster {
     constructor(name, image, element) {
@@ -124,7 +104,7 @@ class ElementMonster {
         return 1;
     }
 
-//METODO COMBAT
+    //METODO COMBAT
     combatMonster(){
         
     }
@@ -169,8 +149,6 @@ selectMonsterSlush.addEventListener('click', function() {
 });
 
 
-// MONSTER ELEMENT ENEMIGO
-
 jorney.addEventListener("click", pickEnemyMonster);
 
 function pickEnemyMonster() {
@@ -207,8 +185,6 @@ function combatBoard() {
 
 }
 
-//ATAQUES
-
 function attackClicked(attack) {
     playerAttack = attack;
     sectionAttackResult.style.visibility = 'visible';
@@ -218,7 +194,7 @@ function attackClicked(attack) {
 
     function crearMensaje(resultado) {
         pickAttackText.style.visibility = 'hidden';
-    elementsAttack.style.visibility = 'hidden';
+        elementsAttack.style.visibility = 'hidden';
         combatResult.textContent = resultado;
     }
 
@@ -238,10 +214,12 @@ function attackClicked(attack) {
     }
 
     function combate() {
+        moves += 1;
         let puntos = 0;
+
         if (playerAttack === enemyAttack) {
             puntos = 1;
-            crearMensaje("Wow, por poco, han empatado y eso te hará avanzar una casilla");
+            crearMensaje("Wow, por poco, han empatado y eso te hizo avanzar una casilla");
             
         } else if (
             (playerAttack === 'Fuego' && enemyAttack === 'Tierra') ||
@@ -254,32 +232,38 @@ function attackClicked(attack) {
         } else {
             puntos = 0;
             crearMensaje("Has perdido este combate y te quedas en la misma casilla... continua intentándolo");
-                    
-
         }
-        moveMonster();
-        
 
-        if (currentMonsterPosition >= 10) {
-            resultText.innerText = "GAME OVER ¡Ganaste!";
-            disableButtons();
-        } 
+        currentMonsterPosition += puntos;
+
+        if (currentMonsterPosition > 9) {
+            currentMonsterPosition = 9;
+        }
+
+        updateBoard();
+
+        if (currentMonsterPosition === 9) {
+            endGame('GAME OVER ¡Llegaste has ganado los combates suficientes para llegar al otro lado de la isla, así que... GANASTE!');
+            return;
+        }
+
+        if (moves === 5) {
+            endGame('GAME OVER !Has combatido 5 veces y tu Monster Element a muerto, por lo que perdiste!');
+        }
     }
 
-    function moveMonster() {
-        if (currentMonsterPosition < 11) {
-            currentMonsterPosition += puntos > 0 ? 1 : 0;
-            updateBoard();
-        }
+    function endGame(text) {
+        textWinner.style.visibility = 'visible';
+        textWinner.textContent = text;
+        nextRound.style.visibility = 'hidden';
     }
 
-    
 
     function updateBoard() {
-        for (let i = 0; i < board.length; i++) {
-            board[i].innerText = "";
+        for (let i = 0; i < colums.length; i++) {
+            colums[i].innerText = "";
         }
-        board[currentMonsterPosition].innerHTML = `<img class="monster" src="${playerElementMonster.image}" alt="${playerElementMonster.name}" width="150" />`;
+        colums[currentMonsterPosition].innerHTML = `<img class="monster" src="${playerElementMonster.image}" alt="${playerElementMonster.name}" width="150" />`;
     }
 
     
@@ -301,28 +285,20 @@ Earthattack.addEventListener('click', function() {
 playerAttackButton();
 
 function siguienteRound() {
-    // Restablecer valores o realizar acciones necesarias para el siguiente round
     playerAttack = null;
     enemyAttack = null;
     combatStartAgain.style.visibility='visible';
 
-    // Ocultar o mostrar elementos según sea necesario
     sectionAttackResult.style.visibility = 'hidden';
     sectionCombatResult.style.visibility = 'hidden';
     combatStart.style.visibility='hidden';
     sectionPickAttack.style.display='none';
     
 
-    // Limpiar contenido de mensajes
     attackPlayerPicked.textContent = '';
     attackEnemyPicked.textContent = '';
     combatResult.textContent = '';
     pickEnemyMonster();
 };
+
 nextRound.addEventListener("click", siguienteRound);
-
-
-console.log(move + puntos);
-
-
-
