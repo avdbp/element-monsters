@@ -133,6 +133,7 @@ function monsterClicked(monster) {
     sectionSelectMonster.style.display = 'none';
     sectionShowPlayerMonster.style.display = 'initial';
     playerMonsterText.textContent = "Has Elegido a " + playerElementMonster.name;
+    playerMonsterImage.innerHTML = `<img class="monster" src="${playerElementMonster.image}" alt="${playerElementMonster.name}"  width="500" />`;
 }
 
 
