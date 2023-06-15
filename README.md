@@ -40,8 +40,7 @@ Cada punto hace avanzar al jugador en un tablero, al llegar a la "meta" ganará.
 ## Condición de derrota
 
 
-Si el oponente llega primero a la "meta" el jugador será derrotado.
-
+Si pasan 5 rounds y el jugador no ha logrado llegar a la meta, pierde el juego
 
 ## Clases
 
