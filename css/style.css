@@ -94,16 +94,39 @@ p{
     opacity: .7;
     width: 1000px;
     border:10px solid white;
-    margin: 20px;
+    margin: 0px 20px 20px 20px;
   
 }
 .cell {
-    width: 100px;
-	height: 100px;
-    background-color: red;
+    display: flex;
+    align-content: center;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    font-family: 'Courier Prime', monospace;
+	height: 150px;
+    background-color: rgb(12, 11, 11);
     opacity: .9;
-    border: 5px solid #36979d;;
+    border: 5px solid #36979d;
 }
+#board-text {
+    display: flex;
+    background-color: aliceblue;
+    text-align: center;
+    opacity: .7;
+    width: 1000px;
+    border:10px solid white;
+}
+.cell2 {
+    font-size: 20px;
+    text-align: center;
+    color: rgb(11, 11, 11);
+    width: 100px;
+    font-family: 'Courier Prime', monospace;
+	height: 30px;
+    opacity: .9;
+    }
 .player-monster-text {
     font-size: 50px;
 }
@@ -132,10 +155,28 @@ p{
   }
   #player-combat{
     margin: 30px;
+    text-align: center;
+  }
+  #attack-player-picked{
+    font-size: 35px;
+  }
+  #attack-enemy-picked{
+    font-size: 35px;
+
   }
 
   #enemy-combat{
+    text-align: center;
     margin: 30px;
+  }
+  #round-result{
+    text-align: center;
+    margin: 50px;
+  }
+  #result {
+    text-align: center;
+    margin: 30px;
+    font-size: 40px;
   }
 
 button{

@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        <audio autoplay="autoplay" loop="loop" preload="auto"  id="audio"> 
+        <audio id="audio"> 
             <source src="./music/fondo.mp3" type="audio/mp3">
             </audio>
          <section id="main-page">
@@ -61,8 +61,10 @@
         <section id="show-enemy-monster">
             <h3 class="enemy-monster-text">Has Encontrado a:</h3>
             <div id="enemy-monster-image"></div>
-            <p>Ahora, para poder seguir el camino debes combatir y ganar</p>
+            <p>Tienes que combatir y ganar para seguir tu camino</p>
             <button id="combat">Combatir</button>
+            <button id="combat-again">Volver a Combatir</button>
+
         </section>
         
         <section id="combat-result">
@@ -80,29 +82,43 @@
         <section id="round-result">
             <h2 id="result"></h2>
             <img src="" alt="" id="image-winner">
-            <h2 id="text-winner"></h2>
+            <!-- <h2 id="text-winner"></h2> -->
+            <button id="next-round">Seguir el viaje</button>
         </section>
         
         
         <section id="pick-attack">
+            <div id="board-text">
+                <div class="cell2">INICIO</div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2"></div>
+                <div class="cell2">FINAL</div>
+        </div>
+            <div id="board">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+        </div>
             <h2 id="pick-attack-text">Elige el ataque con el que vas a combatir</h2>
         <div id="elements-attack">
             <button id="fire-attack">Fuego 🔥</button>
             <button id="water-attack">Agua 💧</button>
             <button id="earth-attack">Tierra 🌎</button>
         </div>
-        <div id="board">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-    </div>
+      
         </section>
 
   
@@ -114,6 +130,7 @@
             <button>Reiniciar el Juego</button>
         </section>
 
-        <script type="text/javascript" src="js/main.js"></script>  
+        <script type="text/javascript" src="js/main.js"></script>
+          
     </body>
 </html>

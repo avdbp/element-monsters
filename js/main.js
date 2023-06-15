@@ -1,28 +1,26 @@
 
-// ELEMENTOS DE SECTION MAIN PAGE
+  
 const sectionMainPage = document.getElementById("main-page");
 const buttonTutorial = document.getElementById('tutorial');
+const audio = document.getElementById('audio');
 const buttonPlayGame = document.getElementById('play-game');
 
-// ELEMENTOS DE SECTION SELECT MONSTER
 const sectionSelectMonster = document.getElementById("select-monster");
 const selectMonsterPyro = document.getElementById("pyro");
 const selectMonsterFlow = document.getElementById("flow");
 const selectMonsterSlush = document.getElementById("slush");
 
-// ELEMENTOS DE SECTION SHOW PLAYER MONSTER
 const sectionShowPlayerMonster = document.getElementById("show-player-monster");
 const playerMonsterText = document.getElementsByClassName("player-monster-text")[0];
 const playerMonsterImage = document.getElementById("player-monster-image");
 const jorney = document.getElementById("jorney")
-// ELEMENTOS DE SECTION SHOW ENEMY MONSTER
 
 const sectionShowEnemyMonster = document.getElementById("show-enemy-monster");
 const enemyMonsterText = document.getElementsByClassName("enemy-monster-text")[0];
 const enemyMonsterImage = document.getElementById("enemy-monster-image");
 const combatStart = document.getElementById("combat");
+const combatStartAgain = document.getElementById("combat-again");
 
-// ELEMENTOS DE SECTION PICK ATTACK
 const sectionPickAttack = document.getElementById("pick-attack");
 const FireAttack = document.getElementById("fire-attack");
 const WaterAttack = document.getElementById("water-attack");
@@ -41,24 +39,17 @@ const cellsBoard8 = document.getElementsByClassName("cell")[7];
 const cellsBoard9 = document.getElementsByClassName("cell")[8];
 const cellsBoard10 = document.getElementsByClassName("cell")[9];
 
-
-
-// ELEMENTOS COMBAT RESULT
 const sectionCombatResult = document.getElementById("combat-result");
 const attackPlayerPicked = document.getElementById("attack-player-picked");
 const attackPlayerImage = document.getElementById("attack-player-image");
 const attackEnemyPicked = document.getElementById("attack-enemy-picked");
 const attackEnemyImage = document.getElementById("attack-enemy-image");
-const combarResult = document.getElementById("result");
+const combatResult = document.getElementById("result");
 const ImageResult = document.getElementById("image-result");
 const sectionRoundResult = document.getElementById("round-result");
+const nextRound = document.getElementById("next-round");
 
-//ELEMENTOS ATTACK RESULT
 const sectionAttackResult = document.getElementById("round-result");
-
-
-
-// ELEMENTOS WIN OR LOST SCREEN
 
 const sectionWinOrLostScreen = document.getElementById("win-or-lost-screen");
 const winOrLostText = document.getElementById("win-or-lost-text");
@@ -67,8 +58,6 @@ const winOrLostImg = document.getElementById("win-or-lost-text");
 function random (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-//PANTALLAS
 sectionSelectMonster.style.display ='none'
 sectionShowPlayerMonster.style.display ='none'
 sectionShowEnemyMonster.style.display='none'
@@ -76,13 +65,16 @@ sectionPickAttack.style.display ='none'
 sectionCombatResult.style.visibility ='hidden'
 sectionAttackResult.style.visibility ='hidden'
 sectionWinOrLostScreen.style.display ='none'
+combatStartAgain.style.visibility='hidden';
 
 
-//ENTRAR EN PANTALLA JUGAR
 buttonPlayGame.addEventListener("click", () => {sectionMainPage.style.display ='none' 
 buttonPlayGame.style.display = 'none'
 buttonTutorial.style.display = 'none'
-sectionSelectMonster.style.display ='flex'});
+sectionSelectMonster.style.display ='flex'
+// audio.play();
+});
+
 
 
 let elementMonsters = [];
@@ -96,6 +88,11 @@ let playerAttackResultImage;
 let enemyAttackResultImage;
 let playerAttackResultText;
 let enemyAttackResultText;
+let puntos = 0;
+let move = 0 + puntos;
+let currentMonsterPosition = 0;
+
+
 
 
 
@@ -104,6 +101,32 @@ class ElementMonster {
         this.name = name
         this.image = image
         this.element = element
+    }
+
+    //METODOS ATTACK
+
+    fireAttack(){
+        if(this.element == "Fire"){
+            return 3;
+        }
+        return 1;
+    }
+    waterAttack(){
+        if(this.element == "Water"){
+            return 3;
+        }
+        return 1;
+    }
+    earthAttack(){
+        if(this.element == "Earth"){
+            return 3;
+        }
+        return 1;
+    }
+
+//METODO COMBAT
+    combatMonster(){
+        
     }
 }
 
@@ -123,13 +146,15 @@ const fireAttack = new Attack('Fire', "./images/fire.gif");
 const waterAttack = new Attack('water', "./images/water.gif");
 const earthAttack = new Attack('Earth', "./images/earth.gif");
 
+
+
 function monsterClicked(monster) {
     playerElementMonster = monster;
     sectionSelectMonster.style.display = 'none';
     sectionShowPlayerMonster.style.display = 'initial';
     playerMonsterText.textContent = "Has Elegido a " + playerElementMonster.name;
-    playerMonsterImage.innerHTML = `<img class="monster" src="${playerElementMonster.image}" alt="${playerElementMonster.name}" width="500" />`;
 }
+
 
 selectMonsterPyro.addEventListener('click', function() {
     monsterClicked(monsterPyro);
@@ -146,42 +171,56 @@ selectMonsterSlush.addEventListener('click', function() {
 
 // MONSTER ELEMENT ENEMIGO
 
-jorney.addEventListener("click", pickEnemyMonster)
-function pickEnemyMonster() {
-    let randomPick = random(1,3)
-    if (randomPick == 1) {
-            enemyElementMonster = monsterPyro;
-            } else if (randomPick == 2) {
-                enemyElementMonster = monsterFlow;
-                } else if (randomPick == 3) {
-                    enemyElementMonster = monsterSlush;
-                    }
-                    sectionSelectMonster.style.display = 'none';
-                    sectionShowPlayerMonster.style.display = 'none';
-                    sectionShowEnemyMonster.style.display = 'initial'
-                    enemyMonsterText.textContent = "Has Encontrado a " + enemyElementMonster.name;
-                    enemyMonsterImage.innerHTML = `<img class="monster" src="${enemyElementMonster.image}" alt="${enemyElementMonster.name}"  width="500" />`;
-    }
+jorney.addEventListener("click", pickEnemyMonster);
 
-// COMIENZO DEL VIAJE
-// (COMBATE)
+function pickEnemyMonster() {
+    let randomPick = random(1, 3);
+    if (randomPick == 1) {
+        enemyElementMonster = monsterPyro;
+    } else if (randomPick == 2) {
+        enemyElementMonster = monsterFlow;
+    } else if (randomPick == 3) {
+        enemyElementMonster = monsterSlush;
+    }
+    sectionSelectMonster.style.display = 'none';
+    sectionShowPlayerMonster.style.display = 'none';
+    sectionShowEnemyMonster.style.display = 'initial';
+    enemyMonsterText.textContent = "Has Encontrado a " + enemyElementMonster.name;
+    enemyMonsterImage.innerHTML = `<img class="monster" src="${enemyElementMonster.image}" alt="${enemyElementMonster.name}"  width="500" />`;
+   
+}
+
 
 combatStart.addEventListener("click", combatBoard)
 function combatBoard() {
     sectionShowEnemyMonster.style.display = 'none';
     sectionPickAttack.style.display = 'flex';
 }
+combatStartAgain.addEventListener("click", combatBoard)
+function combatBoard() {
+    sectionShowEnemyMonster.style.display = 'none';
+    sectionPickAttack.style.display = 'flex';
+    pickAttackText.style.visibility = 'visible';
+    elementsAttack.style.visibility = 'visible';
+    sectionAttackResult.style.visibility = 'hidden';
+    sectionCombatResult.style.display = 'initial';
+
+}
 
 //ATAQUES
 
 function attackClicked(attack) {
     playerAttack = attack;
-    pickAttackText.style.visibility = 'hidden'
-    elementsAttack.style.visibility = 'hidden'
-    sectionAttackResult.style.visibility ='visible'    
-    sectionCombatResult.style.visibility ='visible'
+    sectionAttackResult.style.visibility = 'visible';
+    sectionCombatResult.style.visibility = 'visible';
     attackPlayerPicked.textContent = 'Has elegido un ataque de ' + attack;
-    attackPlayerImage.innerHTM = `<img id="attack-player-image" src="${enemyElementMonster.image}" alt="${enemyElementMonster.name}"  width="500" />`;
+    attackPlayerImage.innerHTML = `<img id="attack-player-image" src="${enemyElementMonster.image}" alt="${enemyElementMonster.name}" width="500" />`;
+
+    function crearMensaje(resultado) {
+        pickAttackText.style.visibility = 'hidden';
+    elementsAttack.style.visibility = 'hidden';
+        combatResult.textContent = resultado;
+    }
 
     function enemyPickedMonster() {
         let randomPick = random(1, 3);
@@ -193,13 +232,60 @@ function attackClicked(attack) {
             enemyAttack = 'Tierra';
         }
         attackEnemyPicked.textContent = 'Tu enemigo ha usado un ataque de ' + enemyAttack;
-        enemyElementMonster.name;
         enemyMonsterImage.innerHTML = `<img class="monster" src="${enemyElementMonster.image}" alt="${enemyElementMonster.name}" width="500" />`;
+
+        combate(); 
     }
 
+    function combate() {
+        let puntos = 0;
+        if (playerAttack === enemyAttack) {
+            puntos = 1;
+            crearMensaje("Wow, por poco, han empatado y eso te hará avanzar una casilla");
+            
+        } else if (
+            (playerAttack === 'Fuego' && enemyAttack === 'Tierra') ||
+            (playerAttack === 'Agua' && enemyAttack === 'Fuego') ||
+            (playerAttack === 'Tierra' && enemyAttack === 'Agua')
+        ) {
+            puntos = 3;
+            crearMensaje("Ganaste este combate y avanzas 3 casillas");
+            
+        } else {
+            puntos = 0;
+            crearMensaje("Has perdido este combate y te quedas en la misma casilla... continua intentándolo");
+                    
+
+        }
+        moveMonster();
+        
+
+        if (currentMonsterPosition >= 10) {
+            resultText.innerText = "GAME OVER ¡Ganaste!";
+            disableButtons();
+        } 
+    }
+
+    function moveMonster() {
+        if (currentMonsterPosition < 11) {
+            currentMonsterPosition += puntos > 0 ? 1 : 0;
+            updateBoard();
+        }
+    }
+
+    
+
+    function updateBoard() {
+        for (let i = 0; i < board.length; i++) {
+            board[i].innerText = "";
+        }
+        board[currentMonsterPosition].innerHTML = `<img class="monster" src="${playerElementMonster.image}" alt="${playerElementMonster.name}" width="150" />`;
+    }
+
+    
     enemyPickedMonster();
 }
-
+function playerAttackButton (){
 FireAttack.addEventListener('click', function() {
     attackClicked('Fuego');
 });
@@ -211,3 +297,32 @@ WaterAttack.addEventListener('click', function() {
 Earthattack.addEventListener('click', function() {
     attackClicked('Tierra');
 });
+}
+playerAttackButton();
+
+function siguienteRound() {
+    // Restablecer valores o realizar acciones necesarias para el siguiente round
+    playerAttack = null;
+    enemyAttack = null;
+    combatStartAgain.style.visibility='visible';
+
+    // Ocultar o mostrar elementos según sea necesario
+    sectionAttackResult.style.visibility = 'hidden';
+    sectionCombatResult.style.visibility = 'hidden';
+    combatStart.style.visibility='hidden';
+    sectionPickAttack.style.display='none';
+    
+
+    // Limpiar contenido de mensajes
+    attackPlayerPicked.textContent = '';
+    attackEnemyPicked.textContent = '';
+    combatResult.textContent = '';
+    pickEnemyMonster();
+};
+nextRound.addEventListener("click", siguienteRound);
+
+
+console.log(move + puntos);
+
+
+
